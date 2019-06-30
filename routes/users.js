@@ -1,26 +1,25 @@
-let express = require('express');
-let routes = express.Router();
+module.exports = (app) => {
 
-routes.get('/', (req, res) => {
+    app.get('/users', (req, res) => {
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.json({
-        users: [{
-            name: 'Hcode',
-            email: 'contato@hcode.com.br',
-            id: 1
-        }]
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/html');
+        res.json({
+            users: [{
+                name: 'Hcode',
+                email: 'contato@hcode.com.br',
+                id: 1
+            }]
+        });
     });
-});
 
-routes.get('/admin', (req, res) => {
+    app.get('/users/admin', (req, res) => {
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    res.json({
-        users: []
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/html');
+        res.json({
+            users: []
+        });
     });
-});
 
-module.exports = routes;
+};
